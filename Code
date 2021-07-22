@@ -1,0 +1,40 @@
+//SUBSCRIBE TO ELECTRO TAMIZHA
+
+int trigger = 4;
+int echo = 5;
+int relay = 13; 
+
+int time;
+int distance; 
+
+void setup ( ) {
+  
+        pinMode(trigger, OUTPUT); 
+        pinMode (echo, INPUT);
+        pinMode (relay, OUTPUT);
+        
+       }
+
+
+void loop ( ) {
+    digitalWrite (trigger, HIGH);
+    delayMicroseconds (10);
+    digitalWrite (trigger, LOW);
+    time = pulseIn (echo, HIGH);
+    distance = (time * 0.034) / 2;
+
+  if (distance <= 15) 
+        {       
+        digitalWrite (relay, HIGH);
+        delay (500);
+
+        }
+
+  else {    
+
+        digitalWrite (relay, LOW);
+        delay (500);        
+
+  } 
+
+  }
